@@ -1,0 +1,2 @@
+Click Hotspot question type
+-----------------------------------
