@@ -72,6 +72,9 @@ YUI.add('moodle-qtype_clickhotspot-dd', function(Y) {
                 drag_item_home : function (choiceno) {
                     return dragitemsarea.one('span.draghome.choice' + choiceno);
                 },
+                click_item : function (){
+                    return dragitemsarea.one('span.draghome.choice1');
+                },
                 drag_item_homes : function() {
                     return dragitemsarea.all('span.draghome');
                 },
@@ -293,10 +296,27 @@ YUI.add('moodle-qtype_clickhotspot-dd', function(Y) {
      */
     Y.extend(CLICKHOTSPOT_QUESTION, M.qtype_clickhotspot.dd_base_class, {
         initializer : function() {
+            var oSelf=this;
             this.doc = this.doc_structure(this);
             this.poll_for_image_load(null, false, 0, this.after_image_load);
             this.doc.bg_img().after('load', this.poll_for_image_load, this,
                                                     false, 0, this.after_image_load);
+            
+            
+
+            this.doc.bg_img().on('click',function(e){
+                if (!oSelf.get('readonly')) {
+                    if(!oSelf.dragitemOr)
+                        oSelf.dragitemOr=oSelf.doc.click_item();
+                    var xy=[e.pageX-17,e.pageY-22];
+                    var prt = oSelf.dragitemOr.get('parentNode');
+                    prt.all('.choice1').setStyle('display','block');
+                    oSelf.dragitemOr.setXY(xy);
+                    oSelf.save_all_xy_for_choice(1, oSelf.dragitemOr);
+                    oSelf.redraw_drags_and_drops();
+                }
+
+            })
         },
         after_image_load : function () {
             this.redraw_drags_and_drops();
@@ -336,18 +356,21 @@ YUI.add('moodle-qtype_clickhotspot-dd', function(Y) {
                 var choiceno = this.get_choiceno_for_node(dragnode);
                 this.save_all_xy_for_choice(choiceno, dragnode);
                 this.redraw_drags_and_drops();
+                console.log('end');
             }, this);
             //--- keyboard accessibility
             drag.set('tabIndex', 0);
             drag.on('dragchange', this.drop_zone_key_press, this);
         },
         save_all_xy_for_choice: function (choiceno, dropped) {
+
             var coords = [];
             var bgimgxy;
-            for (var i=0; i <= this.doc.drag_items_for_choice(choiceno).size(); i++) {
+            for (var i=1; i <= this.doc.drag_items_for_choice(choiceno).size(); i++) {
                 var dragitem = this.doc.drag_item_for_choice(choiceno, i);
                 if (dragitem) {
                     dragitem.removeClass('item'+i);
+                    console.log(dragitem);
                     if (!dragitem.hasClass('beingdragged')) {
                         bgimgxy = this.convert_to_bg_img_xy(dragitem.getXY());
                         if (this.xy_in_bgimg(bgimgxy)) {

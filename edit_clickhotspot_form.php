@@ -70,13 +70,13 @@ class qtype_clickhotspot_edit_form extends qtype_ddtoimage_edit_form_base {
     protected function definition_draggable_items($mform, $itemrepeatsatstart) {
         $mform->addElement('header', 'draggableitemheader',
                                 get_string('markers', 'qtype_clickhotspot'));
-        $mform->addElement('advcheckbox', 'shuffleanswers', ' ',
-                                        get_string('shuffleimages', 'qtype_'.$this->qtype()));
+        //$mform->addElement('advcheckbox', 'shuffleanswers', ' ',
+        //                                get_string('shuffleimages', 'qtype_'.$this->qtype()));
         $mform->setDefault('shuffleanswers', 0);
-        $this->repeat_elements($this->draggable_item($mform), $itemrepeatsatstart,
+        $this->repeat_elements($this->draggable_item($mform), 1,
                 $this->draggable_items_repeated_options(),
-                'noitems', 'additems', self::ADD_NUM_ITEMS,
-                get_string('addmoreitems', 'qtype_clickhotspot'), true);
+                'noitems', 'additems', 0,
+                '- x -', true);
     }
 
     protected function draggable_item($mform) {
@@ -85,11 +85,11 @@ class qtype_clickhotspot_edit_form extends qtype_ddtoimage_edit_form_base {
         $grouparray= array();
         $grouparray[] = $mform->createElement('text', 'label',
                                                 '',
-                                                array('size'=>30, 'class'=>'tweakcss'));
+                                                array('size'=>30, 'class'=>'tweakcss' ,'readonly'=>'readonly' ,'value'=>'ʘ'));
         $mform->setType('text', PARAM_RAW_TRIMMED);
 
         $noofdragoptions = array(0 => get_string('infinite', 'qtype_clickhotspot'));
-        foreach (range(1, 6) as $option) {
+        foreach (range(1, 1) as $option) {
             $noofdragoptions[$option] = $option;
         }
         $grouparray[] = $mform->createElement('select', 'noofdrags', get_string('noofdrags', 'qtype_clickhotspot'), $noofdragoptions);
@@ -114,7 +114,7 @@ class qtype_clickhotspot_edit_form extends qtype_ddtoimage_edit_form_base {
                                     get_string('shape', 'qtype_clickhotspot'), $shapearray);
         $grouparray[] = $mform->createElement('text', 'coords',
                                                 get_string('coords', 'qtype_clickhotspot'),
-                                                array('size'=>50, 'class'=>'tweakcss'));
+                                                array('size'=>30, 'class'=>'tweakcss'));
         $mform->setType('coords', PARAM_RAW); // These are validated manually.
         $markernos = array();
         $markernos[0] = '';
@@ -123,6 +123,7 @@ class qtype_clickhotspot_edit_form extends qtype_ddtoimage_edit_form_base {
         }
         $grouparray[] = $mform->createElement('select', 'choice',
                                     get_string('marker', 'qtype_clickhotspot'), $markernos);
+        $mform->setDefault('choice',1);
         $dropzone = $mform->createElement('group', 'drops',
                 get_string('dropzone', 'qtype_clickhotspot', '{no}'), $grouparray);
         return array($dropzone);
@@ -139,7 +140,7 @@ class qtype_clickhotspot_edit_form extends qtype_ddtoimage_edit_form_base {
 
         $repeated = array();
         $repeated[] = $mform->createElement('editor', 'hint', get_string('hintn', 'question'),
-                array('rows' => 5), $this->editoroptions);
+                array('rows' => 1), $this->editoroptions);
         $repeatedoptions['hint']['type'] = PARAM_RAW;
 
         $repeated[] = $mform->createElement('checkbox', 'hintshownumcorrect',

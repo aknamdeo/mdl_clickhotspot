@@ -42,6 +42,7 @@ YUI.add('moodle-qtype_clickhotspot-form', function(Y) {
                     e.drag.get('node').setData('gooddrop', true);
                 });
 
+
                 this.afterimageloaddone = false;
                 this.doc.bg_img().on('load', this.constrain_image_size, this);
             }

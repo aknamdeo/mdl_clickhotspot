@@ -22,6 +22,8 @@
 }
 .que.clickhotspot .dragitems {
     margin-top : 10px;
+    position: absolute;
+    top:-100px;
 }
 .que.clickhotspot .dragitems.readonly .dragitem {
     cursor: auto;
@@ -83,8 +85,8 @@ form.mform fieldset#id_previewareaheader div.markertexts span.markertext {
 }
 .que.clickhotspot div.dragitems img.target {
     position:absolute;
-    left:-7px;
-    top :-7px;
+    left:10px;
+    top :14px;
 }
 .que.clickhotspot div.dragitems div.draghome img.target {
     display:none;
@@ -141,4 +143,18 @@ body#page-question-type-clickhotspot div[id^=fitem_id_][id*=hintclearwrong_] {
 }
 body#page-question-type-clickhotspot #fitem_id_penalty {
     margin-bottom: 2em;
+}
+
+
+#id_draggableitemheader{
+    display:none;
+    visibility : hidden;
+}
+
+input#id_adddropzone{
+    display:none;
+    visibility : hidden; 
+}
+.dragitems .choice1{
+    width:10px;
 }
