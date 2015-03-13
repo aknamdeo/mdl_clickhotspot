@@ -320,7 +320,7 @@ YUI.add('moodle-qtype_clickhotspot-dd', function(Y) {
         },
         after_image_load : function () {
             this.redraw_drags_and_drops();
-            Y.later(2000, this, this.redraw_drags_and_drops, [], true);
+            //et/Y.later(2000, this, this.redraw_drags_and_drops, [], true);
         },
         clone_new_drag_item : function (draghome, itemno) {
             var drag = draghome.cloneNode(true);
