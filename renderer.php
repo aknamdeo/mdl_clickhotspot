@@ -15,13 +15,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Drag-and-drop markers question renderer class.
- *
- * @package    qtype
- * @subpackage clickhotspot
- * @copyright  2012 The Open University
- * @author     Jamie Pratt <me@jamiep.org>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   qtype_clickhotspot
+ * @copyright 2015 EddyTools.com
+ * @author    aknamdeo <aknamdeo@eddytools.com>
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 

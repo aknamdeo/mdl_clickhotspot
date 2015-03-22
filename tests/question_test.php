@@ -15,11 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Unit tests for the drag-and-drop markers question definition class.
- *
  * @package   qtype_clickhotspot
- * @copyright 2012 The Open University
- * @author    Jamie Pratt <me@jamiep.org>
+ * @copyright 2015 EddyTools.com
+ * @author    aknamdeo <aknamdeo@eddytools.com>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -31,13 +29,6 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 require_once($CFG->dirroot . '/question/type/clickhotspot/tests/helper.php');
 
 
-/**
- * Unit tests for the drag-and-drop markers question definition class.
- *
- * @copyright 2012 The Open University
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @group qtype_clickhotspot
- */
 class qtype_clickhotspot_question_test extends basic_testcase {
 
     public function test_get_question_summary() {

@@ -17,12 +17,10 @@
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * These classes handle transforming arrays of records into a linked tree of contexts, categories and questions.
- *
- * @package    qtype
- * @subpackage clickhotspot
- * @copyright  2012 Jamie Pratt
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   qtype_clickhotspot
+ * @copyright 2015 EddyTools.com
+ * @author    aknamdeo <aknamdeo@eddytools.com>
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 abstract class qtype_clickhotspot_list_item implements renderable {
 

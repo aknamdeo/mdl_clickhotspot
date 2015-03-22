@@ -15,14 +15,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Upgrade library code for the clickhotspot question type. This will only get triggered by the code
- * to convert imagetarget questions to clickhotspot.
- *
- * @package    qtype
- * @subpackage clickhotspot
- * @copyright  2012 The Open University
- * @author     Jamie Pratt <me@jamiep.org>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   qtype_clickhotspot
+ * @copyright 2015 EddyTools.com
+ * @author    aknamdeo <aknamdeo@eddytools.com>
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 

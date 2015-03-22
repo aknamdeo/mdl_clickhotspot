@@ -15,11 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Unit tests for the drag-and-drop words shape code.
- *
  * @package   qtype_clickhotspot
- * @copyright 2012 The Open University
- * @author    Jamie Pratt <me@jamiep.org>
+ * @copyright 2015 EddyTools.com
+ * @author    aknamdeo <aknamdeo@eddytools.com>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -30,13 +28,7 @@ global $CFG;
 require_once($CFG->dirroot . '/question/type/clickhotspot/shapes.php'); 
 
 
-/**
- * Unit tests for shape code
- *
- * @copyright 2012 The Open University
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @group qtype_clickhotspot
- */
+
 class qtype_clickhotspot_shapes_test extends basic_testcase {
 
     public function test_polygon_valdiation_test() {

@@ -15,11 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This page lets admin convert imagetarget questions to the clickhotspot question type.
- *
  * @package   qtype_clickhotspot
- * @copyright 2012 The Open University
- * @author    Jamie Pratt <me@jamiep.org>
+ * @copyright 2015 EddyTools.com
+ * @author    aknamdeo <aknamdeo@eddytools.com>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -30,12 +28,7 @@ require_once(dirname(__FILE__).'/questionlists.php');
 require_once(dirname(__FILE__).'/lib.php');
 
 
-/**
- * Class representing a list of questions.
- *
- * @copyright 2012 The Open University
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
+
 class qtype_clickhotspot_question_converter_list extends qtype_clickhotspot_question_list {
     protected function new_list_item($stringidentifier, $link, $record) {
         return new qtype_clickhotspot_question_converter_list_item($stringidentifier, $link, $record, $this, $this->categorylist);
@@ -57,12 +50,6 @@ class qtype_clickhotspot_question_converter_list extends qtype_clickhotspot_ques
 }
 
 
-/**
- * Class representing an item in the list of questions.
- *
- * @copyright 2012 The Open University
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
 class qtype_clickhotspot_question_converter_list_item extends qtype_clickhotspot_question_list_item {
     public $imagetargetrecord = null;
     public $answers = array();

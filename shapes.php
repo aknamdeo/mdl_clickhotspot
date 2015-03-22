@@ -13,23 +13,15 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
- * Drag-and-drop markers classes for dealing with shapes on the server side.
- *
  * @package   qtype_clickhotspot
- * @copyright 2012 The Open University
- * @author    Jamie Pratt <me@jamiep.org>
+ * @copyright 2015 EddyTools.com
+ * @author    aknamdeo <aknamdeo@eddytools.com>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 
-/**
- * Base class to represent a shape.
- *
- * @copyright 2012 The Open University
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
+
 abstract class qtype_clickhotspot_shape {
 
     protected $error = false;
@@ -129,12 +121,7 @@ abstract class qtype_clickhotspot_shape {
 }
 
 
-/**
- * Class to represent a rectangle.
- *
- * @copyright 2012 The Open University
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
+
 class qtype_clickhotspot_shape_rectangle extends qtype_clickhotspot_shape {
     protected $width;
     protected $height;
@@ -189,12 +176,7 @@ class qtype_clickhotspot_shape_rectangle extends qtype_clickhotspot_shape {
 }
 
 
-/**
- * Class to represent a circle.
- *
- * @copyright 2012 The Open University
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
+
 class qtype_clickhotspot_shape_circle extends qtype_clickhotspot_shape {
 
     protected $xcentre;
@@ -247,12 +229,6 @@ class qtype_clickhotspot_shape_circle extends qtype_clickhotspot_shape {
 }
 
 
-/**
- * Class to represent a polygon.
- *
- * @copyright 2012 The Open University
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
 class qtype_clickhotspot_shape_polygon extends qtype_clickhotspot_shape {
     /**
      * @var array Arrary of xy coords where xy coords are also in a two element array [x,y].
@@ -404,12 +380,6 @@ class qtype_clickhotspot_shape_polygon extends qtype_clickhotspot_shape {
 }
 
 
-/**
- * Class to represent a point.
- *
- * @copyright 2012 The Open University
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
 class qtype_clickhotspot_point {
     public $x;
     public $y;
@@ -427,12 +397,6 @@ class qtype_clickhotspot_point {
 }
 
 
-/**
- * Defines a segment between two end points a and b.
- *
- * @copyright 2012 The Open University
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
 class qtype_clickhotspot_segment {
     public $a;
     public $b;

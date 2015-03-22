@@ -308,7 +308,7 @@ YUI.add('moodle-qtype_clickhotspot-dd', function(Y) {
                 if (!oSelf.get('readonly')) {
                     if(!oSelf.dragitemOr)
                         oSelf.dragitemOr=oSelf.doc.click_item();
-                    var xy=[e.pageX-17,e.pageY-22];
+                    var xy=[e.pageX,e.pageY];
                     var prt = oSelf.dragitemOr.get('parentNode');
                     prt.all('.choice1').setStyle('display','block');
                     oSelf.dragitemOr.setXY(xy);
@@ -334,7 +334,9 @@ YUI.add('moodle-qtype_clickhotspot-dd', function(Y) {
             }
             return drag;
         },
+        
         draggable : function (drag) {
+            /*
             var dd = new Y.DD.Drag({
                 node: drag,
                 dragMode: 'intersect'
@@ -361,28 +363,32 @@ YUI.add('moodle-qtype_clickhotspot-dd', function(Y) {
             //--- keyboard accessibility
             drag.set('tabIndex', 0);
             drag.on('dragchange', this.drop_zone_key_press, this);
+            */
         },
+        
         save_all_xy_for_choice: function (choiceno, dropped) {
 
             var coords = [];
             var bgimgxy;
+            
             for (var i=1; i <= this.doc.drag_items_for_choice(choiceno).size(); i++) {
                 var dragitem = this.doc.drag_item_for_choice(choiceno, i);
                 if (dragitem) {
                     dragitem.removeClass('item'+i);
-                    console.log(dragitem);
-                    if (!dragitem.hasClass('beingdragged')) {
-                        bgimgxy = this.convert_to_bg_img_xy(dragitem.getXY());
+                    //if (!dragitem.hasClass('beingdragged')) {
+                        //bgimgxy = this.convert_to_bg_img_xy(dragitem.getXY());
+                        bgimgxy =dragitem.getXY();
                         if (this.xy_in_bgimg(bgimgxy)) {
                             dragitem.removeClass('item'+i);
                             dragitem.addClass('item'+coords.length);
                             coords[coords.length] = bgimgxy;
                         }
-                    }
+                    //}
                 }
             }
             if (dropped !== null){
                 bgimgxy = this.convert_to_bg_img_xy(dropped.getXY());
+                //bgimgxy =dropped.getXY();
                 dropped.addClass('item'+coords.length);
                 if (this.xy_in_bgimg(bgimgxy)) {
                     coords[coords.length] = bgimgxy;
@@ -421,9 +427,9 @@ YUI.add('moodle-qtype_clickhotspot-dd', function(Y) {
         },
         redraw_drags_and_drops : function() {
             this.doc.drag_items().each(function(item) {
-                //if (!item.hasClass('beingdragged')){
+                if (!item.hasClass('beingdragged')){
                     item.addClass('unneeded');
-                //}
+                }
             }, this);
             this.doc.inputs_for_choices().each(function (input) {
                 var choiceno = this.get_choiceno_for_node(input);
@@ -466,7 +472,7 @@ YUI.add('moodle-qtype_clickhotspot-dd', function(Y) {
                 // http://stackoverflow.com/questions/3485365/how-can-i-force-webkit-to-redraw-repaint-to-propagate-style-changes
                 var outer = this.doc.top_node().one('div.ddarea');
                 var oldDisplay = outer.getStyle('display');
-                outer.setStyle('display', 'none');
+                //outer.setStyle('display', 'none');
                 outer.get('offsetHeight');
                 outer.setStyle('display', oldDisplay);
             }

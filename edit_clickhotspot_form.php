@@ -15,11 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Defines the editing form for the drag-and-drop images onto images question type.
- *
  * @package   qtype_clickhotspot
- * @copyright 2012 The Open University
- * @author    Jamie Pratt <me@jamiep.org>
+ * @copyright 2015 EddyTools.com
+ * @author    aknamdeo <aknamdeo@eddytools.com>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

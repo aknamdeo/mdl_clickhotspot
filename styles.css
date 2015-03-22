@@ -13,7 +13,7 @@
 }
 
 .que.clickhotspot .dragitems .dragitem {
-    cursor: move;
+    cursor: default;
     position: absolute;
     z-index: 2;
 }
@@ -26,7 +26,7 @@
     top:-100px;
 }
 .que.clickhotspot .dragitems.readonly .dragitem {
-    cursor: auto;
+    cursor: default;
 }
 .que.clickhotspot div.ddarea, form.mform fieldset#id_previewareaheader div.ddarea {
     text-align : center;
@@ -44,11 +44,16 @@ form.mform fieldset#id_previewareaheader div.draghome, form.mform fieldset#id_pr
 .que.clickhotspot div.dragitems span.markertext,
 .que.clickhotspot div.markertexts span.markertext,
 form.mform fieldset#id_previewareaheader div.markertexts span.markertext {
-    margin: 5px;
+    position:absolute !important;
+    top: -8px;
+    left: -8px;
+    color:red;
+    /*
+    margin: 0px;
     z-index: 3;
     background-color: white;
     border: 2px solid black;
-    padding: 5px;
+    padding: 0px;
     display: -moz-inline-stack;
     display:inline-block;
     zoom: 1;
@@ -57,6 +62,7 @@ form.mform fieldset#id_previewareaheader div.markertexts span.markertext {
     -webkit-border-radius: 10px;
     -khtml-border-radius: 10px;
     border-radius: 10px;
+    */
 }
 .que.clickhotspot div.markertexts span.markertext {
     z-index: 2;
@@ -85,8 +91,8 @@ form.mform fieldset#id_previewareaheader div.markertexts span.markertext {
 }
 .que.clickhotspot div.dragitems img.target {
     position:absolute;
-    left:10px;
-    top :14px;
+    left:-10px;
+    top :-5px;
 }
 .que.clickhotspot div.dragitems div.draghome img.target {
     display:none;

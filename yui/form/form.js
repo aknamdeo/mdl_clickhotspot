@@ -26,6 +26,15 @@ YUI.add('moodle-qtype_clickhotspot-form', function(Y) {
             Y.later(500, this, this.update_drop_zones, [], true);
             Y.after(this.load_bg_image, M.form_filepicker, 'callback', this);
             this.load_bg_image();
+
+            //hide extra options
+            for(var j=1;j<=5;j++){
+                var dobj=Y.one('#fgroup_id_drops_'+j);
+                if(dobj!=null){
+                    Y.one('#fgroup_id_drops_'+j).setStyle('display','none');
+                }
+            }
+
         },
 
         load_bg_image : function() {
@@ -79,10 +88,12 @@ YUI.add('moodle-qtype_clickhotspot-form', function(Y) {
                 this.draw_drop_zone(dropzoneno, markertext,
                                     shape, coords, colourfordropzone, false);
             }
-            Y.one('div.ddarea .grid')
-                .setXY(this.doc.bg_img().getXY())
-                .setStyle('width', this.doc.bg_img().get('width'))
-                .setStyle('height', this.doc.bg_img().get('height'));
+            if(this.doc.bg_img()!=null){
+                Y.one('div.ddarea .grid')
+                    .setXY(this.doc.bg_img().getXY())
+                    .setStyle('width', this.doc.bg_img().get('width'))
+                    .setStyle('height', this.doc.bg_img().get('height'));
+            }
         },
 
         get_coords : function (dropzoneno) {
